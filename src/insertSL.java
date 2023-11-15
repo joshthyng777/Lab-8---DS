@@ -19,19 +19,23 @@ public class insertSL<T extends Comparable<T>> extends SkipList<T> {
 	
 	@Override
 	public void insert(T value) {
-		int temp = randomLevel();
+		int tempLevel = randomLevel();
 	
 		if (header.forward == null) {
 			header.value = value;
-			header.
-			
 		}
-		SkipList.SkipListNode<T>[] tempNode = header.forward[];
+		SkipList.SkipListNode<T>[] insertNode = header.forward;
+		
 		for(int i = 3; i > header.forward.length; i--) {
-			if(header.forward[i].value.equals(value)) {
-				tempNode = header.forward[i]; 
-				
+			if (insertNode == null) {
+				if(header.forward[i].value.compareTo(value) > 0) {
+					insertNode = header.forward; 
+				} else {
+					insertNode = header;
+				}
+					
 			}
+			
 		}
 		
 	}
